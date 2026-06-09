@@ -1,0 +1,21 @@
+{
+  "VPC": {
+    "CIDR": "10.0.0.0/16",
+    "RoutingTables": {
+      "PublicRouteTable": {
+        "Associations": ["Public-Subnet-1", "Public-Subnet-2"],
+        "Routes": [
+          {"Destination": "10.0.0.0/16", "Target": "local"},
+          {"Destination": "0.0.0.0/0", "Target": "Internet-Gateway"}
+        ]
+      },
+      "PrivateRouteTable-A": {
+        "Associations": ["Private-Subnet-1"],
+        "Routes": [
+          {"Destination": "10.0.0.0/16", "Target": "local"},
+          {"Destination": "0.0.0.0/0", "Target": "NAT-Gateway-A"}
+        ]
+      }
+    }
+  }
+}
